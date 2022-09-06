@@ -134,7 +134,38 @@ name = name.trim()
         .toLowerCase();
 
 ========================================================
-l13-
+l13
 детерменированность, Побочные эффекты
 Метод является детерминированным тогда, когдя для одних и тех же входных параметров он возвращает один и тот же результат.
 Math.random(); - не детерминированный 
+
+========================================================
+l14
+Стандартная библиотека.
+
+Основные советы как узнавать о новых методах:
+- Всегда четко отслеживать с чем вы сейчас работаетей (какой тип данных). Почти всегда вы найдете необходимый метод в соотвествущем разделе документации - например, для работы со строками нужно изучать строковые методы.
+- Периодически открывайте раздел со стандартными методами по изучаемой тематике и просто пробегайтесь по ним, изучая сигнатуры и способы использования.
+- Чаще читайте чужой код, особенно код библиотек, которые вы используете. Он весь доступен на GitHub/
+Доп. Лекция "Как искать техническую информацию " https://guides.hexlet.io/ru/how-to-search/?roistat_visit=3679276&_gl=1*loplxo*_ga*MTYxMDA5NDE3Ny4xNjQ0NjE0NzM2*_ga_PM3R85EKHN*MTY2MjQ4NjM2NC4xOTguMS4xNjYyNDg2ODAyLjAuMC4w
+
+Варианты документации:
+Getting started - куда жать чтобы было весело
+Guides - описание отдельных компонентов инструмента
+API - сухая документация по всем возможным функциям приложения
+Tutorials - вариции исопльзования инструмента.
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.temporal.ChronoUnit;
+
+public class App {
+    public static void main(String[] args) {
+        // BEGIN (write your solution here)
+        LocalDate dateFrom = LocalDate.of(2017, Month.MAY,24);
+        LocalDate dateTo = LocalDate.of(2017, Month.JULY,29);
+        long noOfDaysBetween = ChronoUnit.DAYS.between(dateFrom,dateTo);
+        System.out.println(noOfDaysBetween);
+        // END
+    }
+}
