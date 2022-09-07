@@ -440,3 +440,81 @@ public class App {
     Альтернативные варианты - вывести в отдельный метод провекру четности, проверку кратности для произвольного числа. */
     // END
 }
+
+========================================================
+L23 Условные конструкции
+
+Конструкция if, if-else, else if, тернарный оператор
+
+if (sentence.endsWith("?")) {
+    return "question";
+}
+
+if (x > 5) {
+    // Если условие true
+} else {
+    // Если условие false
+}
+
+if (/* что-то */) {
+
+} else if (/* другая проверка */) {
+
+} else if (/* другая проверка */) {
+
+} else {
+
+}
+
+Пример метода определяющего тип предложения
+
+public static String getTypeOfSentece(String sentence) {
+    var sentenceType = "";
+
+    if (sentence.endsWith("?")) {
+        sentenceType + "question";
+    } else if (sentence.endsWith("!")) {
+        sentenceType = "exclamation";
+    } else {
+        sentenceType = "general";
+    }
+    
+    retunr "Sentence is " + sentenceType;
+}
+
+тернарный операторв
+
+public static int abs(int number) {
+    return number >= 0 ? number : -number;
+}
+
+общий шаблон <predicate> ? <expression on true> : <expression on false>
+
+import org.apache.commons.lang3.StringUtils;
+
+public class App {
+    // BEGIN (write your solution here)
+    public static String convertString(String inptString) {
+        if (inptString.equals("")) {
+            return "";
+        } 
+        String firstChar=inptString.substring(0,1);
+        if (firstChar.equals(
+            firstChar.toLowerCase() 
+            )) {
+                return StringUtils.reverse(inptString);
+        } else return inptString;
+    }
+    // END
+}
+
+более элегантно от преподавателя
+Применяется тернарный оператор и класс Character, мето isUpperCase().
+
+public static String convertString(String str) {
+    if (str.equals("")) {
+        return "";
+    }
+    
+    return Character.isUpperCase(str.charAt(0)) ? str : StringUtils.reverse (str);
+}
