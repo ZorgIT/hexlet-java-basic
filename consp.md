@@ -336,3 +336,69 @@ public class App {
     }
     // END
 }
+
+
+========================================================
+L21 Логические операции
+Логический тип,Сравнение строк, Сравнение по ссылке и по значению, Особенности строк, комбинирование операций и методов
+
+Список операций сравнения в Java:
+
+< меньше
+<= меньше или равно
+> больше
+>= больше или равно
+== равно
+!= не равно
+
+public static boolean isInfant (int age) {
+    return age < 1;
+}
+
+!одинаковые строки хранятся в одной области памяти (для оптимизации), если одинаковые строки возвращаются методом - они находятся в разных областях памяти.
+Для сравннеия строк по значению используется equals():
+
+var name1 = "java".toUpperCase(); // "JAVA"
+var name2 = "java".toUpperCase(); // "JAVA"
+name1.equals(name2); // true
+
+Так же, в строки встроен метод equalIsIgnoreCase() - выполняет рповерку по значению без учета регистра:
+var name1 = "java".toUpperCase(); //"JAVA"
+var name2 = "java".toLowerCase(); //"java"
+name1.equalsIgnoreCase(name2); //true
+
+Комбинирование операций и методов.
+
+метод для проверки честности:
+
+public static boolean isEven (int number){
+    return (number%2) == 0;
+}
+
+App.isEven(10); // true
+App.isEven(3);// false
+
+Метод проверки заглавной буквы. Алгоритм:
+1. Получим и запишем в переменную первый символ из строки-аргумента
+2. Сравним, равен ли символ своей большой (заглавной) версии
+3. Вернем результат
+
+public static boolean isFirstLetterInUpperCase (String string) {
+    var firstLetter = string.charAt(0);
+    // Класс Character содержит различные методы для работы с символом
+    // Метод isUpperCase() проверяет, что переданный символ в верхнем регистре
+    retunr Character.isUpperCase(firstLetter);
+}
+
+App.isFirstLetterInUpperCase("marmont"); // false
+App.isFirstLetterInUpperCase("Robb"); // true
+
+str1.equals(str2)
+
+проверка на полиндром 
+    // BEGIN
+    public static boolean isPalindrome(String word) {
+        var reversedWord = StringUtils.reverse(word);
+        return word.equalsIgnoreCase(reversedWord);
+    }
+    // END
