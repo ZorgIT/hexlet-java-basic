@@ -402,3 +402,41 @@ str1.equals(str2)
         return word.equalsIgnoreCase(reversedWord);
     }
     // END
+
+
+========================================================
+L22 Логические операторы
+Пример составного условия (метод проверки пароля)
+public static boolean isCOrrectPassword (String password) {
+    var length = password.length();
+    return length >= 8 && length <= 20;
+}
+
+isCorrectPassword("qwerty"); // false
+isCorrectPassword("qwerty1234"); // true
+
+&& и (конъюнкция)
+|| или (дизъюнкция)
+! не (отрицание)
+
+a && b || c; // Без скобок сложно понять приоритет
+a && (b || c) // Приоритет очевиден
+
+public static boolean isEven(int number) {
+    return number % 2 == 0;
+}
+
+isEven(10);  // true
+!isEven(10); // false
+
+public class App {
+    // BEGIN (write your solution here)
+    public static boolean isLeapYear(int inptYear) {
+        return (inptYear % 400) ==0 || 
+                ((inptYear % 4 ==0) 
+                    && (inptYear%100 !=0 ));
+    }
+    /*
+    Альтернативные варианты - вывести в отдельный метод провекру четности, проверку кратности для произвольного числа. */
+    // END
+}
