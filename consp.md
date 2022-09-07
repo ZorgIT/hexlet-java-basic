@@ -241,5 +241,33 @@ public class App {
     }
 }
 
+========================================================
+l18 возврат значений.
+Для того чтобы метод мог возвращать значения необходимо 2 вещи
+1. Описать тип возвращаемых данных.
+2. Выполнить возврат return
 
+Пример:
+class App {
+    public static String greeting() {
+        return "Winter is coming!";
+    }
+}
 
+return возвращает не только конкретное значение(возможно вернуть почти все что угодно)
+
+public class App {
+    // BEGIN (write your solution here)
+    public static String sayHurrayThreeTimes() {
+        return "hurray! hurray! hurray!";
+    }
+    // END
+}
+
+Вариант преподавателя -   через суммирование переменной.  
+// BEGIN
+    public static String sayHurrayThreeTimes() {
+        var word = "hurray!";
+        return word + " " + word + " " + word;
+    }
+    // END
