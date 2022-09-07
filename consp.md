@@ -299,3 +299,40 @@ public static String getLastChar(String str) {
 
 Параметры, при их наличии всегда обязательны.
 количество параметров не ограничено, перечисляются через запятую.
+
+========================================================
+l20 Необязательные параметры методов
+
+Для описания нескольких вариаций вызова функции используется перегрузка метода
+При вызове, во время компиляции выбирается та версия метода, которая совпадает по типу и количеству параметров, если такой метод не будет найдет - вернется ошибка.
+class App {
+    public static int sum (int x, int y){
+        return x + y;
+    }
+    public static int sum (int x) {
+        return x + 10;
+    }
+}
+
+Для избегания дублирования кода достаточно определить сначала общий метод, который принимает больше всего параметров, а затем вызывать его из тех методов, где есть значения по умолчанию.
+
+class App {
+    public static int sum (int x, int y) {
+        return x + y;
+    }
+
+    public static int sum(int x) {
+        return App.sum(x,10);
+    }
+}
+
+public class App {
+    // BEGIN (write your solution here)
+    public static String getHiddenCard(String cardnum, int starnum){
+        return "*".repeat(starnum)+cardnum.substring(12);
+    }
+    public static String getHiddenCard(String cardnum) {
+        return App.getHiddenCard(cardnum,4);
+    }
+    // END
+}
