@@ -764,3 +764,62 @@ public class App {
         // END
     }
 }
+
+========================================================
+L27 Цикл for
+Инкремент и декремент
+
+пример реализации 
+Метод переворота строки:
+
+public static String reverseString(String str) {
+    var result = "";
+
+    for (var i = 0; i < str.length(); i++) {
+        result = str.charAt(i) + result;
+    }
+
+    return result;
+}
+
+В определении цикла for есть:
+1. Начальное значение счетчика (этот код выполняется ровно один раз перед первой итерацией.)
+2. Предикат  - условие повторения циклов. (выполняется на каждой итерации.)
+3. Описание изменение счетчика.
+
+Инкремент\декермент - при использовании префиксной нотации сначала происходит изменение перменной, а потом взоврат. При использовнии постфиксной - наоборот.
+Рекомендации
+Никогда не мешайте в рамках одного выражения операции/метода без побочных эффектов с операциями/методами, обладающими пообчными эффектами.
+Используйте инкременти  декремент только там, где нет разницы между префиксным и постфиксными вариантом: отдельно от всего, на своей собственной строчке кода.
+
+
+public class App {
+    public static String encrypt(String str) {
+        // BEGIN (write your solution here)
+        var result ="";
+
+        if (str.length() % 2 == 0) {
+            for (var i = 0; i<str.length(); i+=2) {
+                result = result + str.charAt(i+1)+str.charAt(i);
+            }
+        } else {
+            for (var i = 0; i<str.length(); i+=3) {
+                result = result + str.charAt(i+1) + str.charAt(i)  + str.charAt(i+2);
+            }
+        }
+        return result;
+        // END
+    }
+}
+
+Вариант преподавателя 
+
+        // BEGIN
+        var result = "";
+        for (var i = 0; i < str.length(); i += 2) {
+            var nextSymbol = (i + 2 > str.length()) ? "" : str.substring(i + 1, i + 2);
+            result = result + nextSymbol + str.charAt(i);
+        }
+
+        return result;
+        // END
