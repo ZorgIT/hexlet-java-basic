@@ -518,3 +518,83 @@ public static String convertString(String str) {
     
     return Character.isUpperCase(str.charAt(0)) ? str : StringUtils.reverse (str);
 }
+
+========================================================
+L24 Конструкция Switch
+
+switch (status) {
+    case "processing":
+        // Делаем раз
+        break;
+    case "paid":
+        // Делаем два
+        break;
+    case "new":
+        // Делаем три
+        break;
+    default: // else
+        // Делаем четыре
+}
+
+Иногда результат полученный внутри case - это конец выполнения етода, содержащего switch.
+В таком случае его нужно как-то вернуть наружу. Для решения этой задачи есть два способа.
+Первый способ - можно создать переменную перед switch, заполнить ее в case и затем вернуть значение этой переменной наружу:
+
+class App {
+    public static String getExplanation (int count) {
+        // объявляем переменную
+        String result; 
+
+        //Заполняем
+        switch (count) {
+            case 1:
+                result = "one";
+                break;
+            case 2:
+                result = "two";
+                break;
+            default:
+                result = null;
+        }
+
+        // Возвращаем
+        return result;
+    }
+}
+
+Альтернативный способ для данного случая - использование return, поскольку после него никакой код не выполняется, то break не нужен
+
+class App {
+    public static String getExplanation (int count) {
+
+        switch (count) {
+            case 1:
+                return "one";
+            case 2:
+                return "two";
+            default:
+                return null;
+        }
+    }
+}
+
+Код со switch длиннее else\if но читать его гораздо проще.
+Польза конструкции в том, что она лучше выражает намерение программиста, когда нужно проверять конкретные значения переменной.
+
+
+public class App {
+    // BEGIN (write your solution here)
+    public static String getNumberExplanation(int inptNumber){
+        switch (inptNumber) {
+            case 666:
+                return "devil number";
+            case 42:
+                return "answer for everything";
+            case 7:
+                return "prime number";
+            default: 
+                return null;
+        }
+    }
+    // END
+}
