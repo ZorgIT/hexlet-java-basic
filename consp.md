@@ -520,6 +520,7 @@ public static String convertString(String str) {
 }
 
 ========================================================
+2022.09.08 L24-
 L24 Конструкция Switch
 
 switch (status) {
@@ -598,3 +599,29 @@ public class App {
     }
     // END
 }
+
+========================================================
+L25 Цикл while
+
+Пример простого метода печати числе до указанного
+
+public static void printNumbers (int lastNumber) {
+    var i=1;
+
+    while (i <= lastNumber ) {
+        System.out.println(i);
+        i = i + 1;
+    }
+    System.out.println("finished!");
+}
+
+App.printNumbers(3);
+
+Синтаксический сахар
+
+a = a + 1 → a += 1
+a = a - 1 → a -= 1
+a = a * 2 → a *= 2
+a = a / 1 → a /= 1
+a = a + "foo" → a += "foo"
+
