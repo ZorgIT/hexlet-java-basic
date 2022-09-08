@@ -625,3 +625,77 @@ a = a * 2 → a *= 2
 a = a / 1 → a /= 1
 a = a + "foo" → a += "foo"
 
+========================================================
+L26 Цикл
+
+Использование циклов, Агрегация данных (строки),Обход строк, Формирование строк в циклах
+
+базовый пример - итератор + сумматор
+
+public static int sumNumbersFromRange(int start, int finish ) {
+    var i = start;
+    var sum = 0;
+
+    while (i<= finish) {
+        sum=sum + i;
+        i = i +1;
+    }
+
+    return sum;
+}
+
+Агрегация данных  (строки)
+public static String repeat (String text, int times) {
+
+    var result = "" ;
+    var i = 1;
+
+    while (i <= times) {
+        result = result + text;
+        i = i + 1;
+    }
+
+    return result;
+}
+
+Метод распечатки слова посимвольно:
+
+public static void printNameBySymbol (String name) {
+    var i = 0;
+
+    while ( i < name.length() ) {
+        System.out.println(name.charAt(i));
+        i += 1;
+    }
+}
+
+Метод ревесра строки:
+
+public static String reverse (String str) {
+    var i = 0;
+
+    var result = "";
+    while (i < str.length()) {
+        result=str.charAt(i)+ result;
+        i += 1;
+    }
+    return result;
+}
+
+public class App {
+    public static String joinNumbersFromRange(int start, int finish) {
+        // BEGIN (write your solution here)
+        var i=start;
+        var result="";
+        
+        while (i <= finish) {
+            result += i;
+            i+=1;
+        }
+        
+        return result;
+        // END
+    
+    }
+}
+
