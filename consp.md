@@ -766,7 +766,7 @@ public class App {
 }
 
 ========================================================
-L27 Цикл for
+L28 Цикл for
 Инкремент и декремент
 
 пример реализации 
@@ -823,3 +823,99 @@ public class App {
 
         return result;
         // END
+
+
+========================================================
+L29 Пакеты
+
+Пакеты позволяют группировать похожие классы.
+Помимо разрешения конфликтов имен, пакеты выполняют контроль доступа. (по муолчанию все классы внутри пакета доступны только классам этого же пакета.)
+ОПРЕДЕЛЕНИЕ ПАКЕТОВ
+имя пакета соотвествует директории (прим - если пакет называется example.request, то и директория будет example/request)
+Именовать пакет наичнаем от директории, в которой расопложен корневой пакет. Для примера создадим класс, который будет описывать пользователя:
+
+// Файл src/main/java/example/models/User.java
+// Именовать пакет начинаем от директории src/main/java/
+// в которой расположен корневой пакет
+
+package example.models;
+
+//чтобы мы могли обратиться к классу за пределами его пакета
+// класс нужно сделать публичным
+
+public class User {
+    private String name;
+    private String email;
+
+    public User (String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail () {
+        return email;
+    }
+}
+
+Используем класс User  в другом пакете:
+
+//Файл src/main/java/example/App.java
+package example;
+
+//Чтобы исопльзовать класс в другом пакете, его нужно импортировать
+// При импорте указываем имя пакет, где расположен класс и имя класса
+
+import example.model.User;
+
+class App {
+    public static void main (String[] args) {
+        //Теперь класс можно использовать, просто обратившись к нему по имени
+        var user = new User ("John", "john@gmail.com");
+
+        System.out.println("Name is " + user.getName()); // =>Name is John
+    }
+}
+
+App.java
+package io.hexlet;
+
+// BEGIN (write your solution here)
+import io.hexlet.counter.Counter;
+// END
+
+public class App {
+    // BEGIN (write your solution here)
+    public static boolean greaterThan(String str1, String str2) {
+
+        if (Counter.bigLettersCount(str1) > Counter.bigLettersCount(str2)) {
+            return true;
+        }
+        return false;
+    }
+    // END
+}
+
+Counter.Java
+// BEGIN (write your solution here)
+package io.hexlet.counter;
+// END
+
+public class Counter {
+    // BEGIN (write your solution here)
+    public static int bigLettersCount(String str) {
+        var count=0;
+
+        for (var i=0; i < str.length();i++) {
+            if (Character.isUpperCase(str.charAt(i))) {
+                count++;
+            }
+        }
+        
+        return count;
+    }
+    // END
+}
