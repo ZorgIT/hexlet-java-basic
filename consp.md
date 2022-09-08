@@ -699,3 +699,68 @@ public class App {
     }
 }
 
+
+========================================================
+L26 Условия внутри цикла и возврат значений
+
+Метод считате сколько раз входит буква в предложение
+
+public static int countChars (String str, char ch) {
+    var i = 0;
+    var count = 0;
+
+    while (i < str.length()) {
+        if (str.charAt(i) == ch) {
+            count += 1;
+        }
+        i+=1;
+    }
+    return count;
+}
+
+Возврат из циклов
+Работа с циклами обычно сводится к вдум сценариям:
+1. Агрегация. Накопление результата во время интераций и работ с ним после цикла.
+2. Выполнение цикла до достижения необходимого результата и выход.
+
+Метод проверки на простое число
+
+public static boolean isPrime (int number) {
+    if (number < 2) {
+        return false;
+    }
+
+    var divider = 2;
+
+    while (divider <= number/2) {
+        if (number % divider == 0) {
+            return false;
+        }
+
+        divider += 1;
+    }
+
+    return true;
+}
+
+ДЗ
+public class App {
+    public static int countChars(String str, char ch) {
+        // BEGIN (write your solution here)
+        var i = 0;
+        var count = 0;
+        var chek = Character.toLowerCase(ch);
+        var lowStr = str.toLowerCase();
+
+        while (i< str.length()) {
+            if (lowStr.charAt(i) == chek) {
+                count += 1;
+            }
+
+            i +=1;
+        }
+
+        return count;
+        // END
+    }
+}
